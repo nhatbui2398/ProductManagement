@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+        <TextView
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Product"
+        android:textSize="20sp"
+        android:textColor="#100"
+        />
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="5dp"
+        android:background="#3000"
+        >
+         <RelativeLayout
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:paddingTop="10dp"
+             android:layout_marginBottom="5dp"
+             >
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="ID: "
+                 />
+             <ImageView
+                 android:id="@+id/btn_prv"
+                 android:layout_toRightOf="@+id/spn_ID"
+                 android:layout_width="30dp"
+                 android:layout_height="30dp"
+                 android:layout_marginLeft="5dp"
+                 android:src="@drawable/back"
+                 />
+             <Spinner
+                 android:id="@+id/spn_ID"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginStart="65dp"
+                 android:layout_marginLeft="65dp"
+                 >
+             </Spinner>
+             <ImageView
+                 android:id="@+id/btn_next"
+                 android:layout_toRightOf="@+id/btn_prv"
+                 android:layout_width="30dp"
+                 android:layout_height="30dp"
+                 android:layout_marginLeft="5dp"
+                 android:src="@drawable/next"
+                 />
+         </RelativeLayout>
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             >
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Name: "
+                 />
+             <EditText
+                 android:id="@+id/edtProdName"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:hint="Product Name"
+                 />
+         </LinearLayout>
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             >
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Desc:  "
+                 />
+             <EditText
+                 android:id="@+id/edtProdDesc"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:hint="Product Desc "
+                 />
+         </LinearLayout>
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             >
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Price:  "
+                 />
+             <EditText
+                 android:id="@+id/edtProdPrice"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:hint="Product Price"
+                 android:inputType="number"
+                 />
+         </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/control"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            />
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            />
+    </LinearLayout>
+</LinearLayout>

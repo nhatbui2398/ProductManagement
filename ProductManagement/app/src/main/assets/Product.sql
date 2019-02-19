@@ -1,0 +1,5 @@
+INSERT INTO `Product` VALUES (1,'VitaminC','',NULL,100.0);
+INSERT INTO `Product` VALUES (2,'VitaminD',NULL,NULL,102.0);
+INSERT INTO `Product` VALUES (3,'VitaminA',NULL,NULL,150.0);
+INSERT INTO `Product` VALUES (4,'Lotus',NULL,NULL,100.1);
+INSERT INTO `Product` VALUES (5,'Omega',NULL,NULL,103.41);
