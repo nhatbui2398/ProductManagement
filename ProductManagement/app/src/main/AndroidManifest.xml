@@ -17,14 +17,14 @@
         <activity android:name=".DemoOld.MainActivity"></activity>
         <activity android:name=".DemoOld.EditProduct" />
         <activity android:name=".DemoOld.AddProduct" />
-        <activity android:name=".Demo.activity.MainScreen">
+        <activity android:name=".Demo.activity.MainScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Demo.activity.Total"></activity>
+        <activity android:name=".Demo.activity.TotalActivity"></activity>
     </application>
 
 </manifest>

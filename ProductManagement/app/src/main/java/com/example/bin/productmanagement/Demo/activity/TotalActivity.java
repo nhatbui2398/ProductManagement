@@ -17,7 +17,7 @@ import com.example.bin.productmanagement.R;
 
 import java.util.ArrayList;
 
-public class Total extends AppCompatActivity implements View.OnClickListener {
+public class TotalActivity extends AppCompatActivity implements View.OnClickListener {
     ArrayList<MProduct> list_Prd;
     TextView txt_Point, txt_Total, txt_Count, txt_finalTotal;
     ImageView btn_back;
@@ -52,7 +52,7 @@ public class Total extends AppCompatActivity implements View.OnClickListener {
         list_Prd = db.getProduct();
         for(int i = 0; i < list_Prd.size();i++){
             MProduct product = list_Prd.get(i);
-            Log.e("Total","\nProduct: "+product.getName()+"\n"
+            Log.e("TotalActivity","\nProduct: "+product.getName()+"\n"
                     +product.getPoint()+"\n"+product.getPrice()
                     +"\n"+product.getDiscount1()+"\n"+product.getDiscount2()
                     +"\n"+product.getDiscount3()+"\n"+product.getDiscount4()+"\n"+product.getAmount());
@@ -88,7 +88,7 @@ public class Total extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_back:{
-                Intent intent = new Intent(this, MainScreen.class);
+                Intent intent = new Intent(this, MainScreenActivity.class);
                 startActivity(intent);
                 break;
             }

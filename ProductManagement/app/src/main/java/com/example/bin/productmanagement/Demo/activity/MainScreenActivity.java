@@ -21,7 +21,7 @@ import java.util.ArrayList;
 /**
  * Đây là Class Activity Đầu tiên khi vào sử dụng app
  */
-public class MainScreen extends AppCompatActivity implements View.OnClickListener {
+public class MainScreenActivity extends AppCompatActivity implements View.OnClickListener {
     RecyclerView rcv_Product;
     Button btn_Total;
     static final int REQUEST_CODE_TOTAL = 100;
@@ -55,11 +55,11 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
         }
     }
 
-    private static MainScreen instance;
+    private static MainScreenActivity instance;
 
-    public static MainScreen getInstance() {
+    public static MainScreenActivity getInstance() {
         if (instance == null) {
-            instance = new MainScreen();
+            instance = new MainScreenActivity();
         }
         return instance;
     }
@@ -68,7 +68,7 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_Total:{
-                Intent intent = new Intent(this, Total.class);
+                Intent intent = new Intent(this, TotalActivity.class);
                 for(int i = 0; i<products.size();i++){
                     if(products.get(i).getAmount() != db.getProductAmount(products.get(i).getId())){
                         db.updateProductAmount(products.get(i).getAmount(),products.get(i).getId());
