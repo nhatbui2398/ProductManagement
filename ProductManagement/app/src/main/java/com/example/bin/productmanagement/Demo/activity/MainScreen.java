@@ -18,6 +18,9 @@ import com.example.bin.productmanagement.R;
 import java.util.ArrayList;
 
 
+/**
+ * Đây là Class Activity Đầu tiên khi vào sử dụng app
+ */
 public class MainScreen extends AppCompatActivity implements View.OnClickListener {
     RecyclerView rcv_Product;
     Button btn_Total;
