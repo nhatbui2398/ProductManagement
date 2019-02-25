@@ -14,9 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DemoOld.MainActivity"></activity>
-        <activity android:name=".DemoOld.EditProduct" />
-        <activity android:name=".DemoOld.AddProduct" />
+
+        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8101540683171429~9714814472"/>
+
         <activity android:name=".Demo.activity.MainScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

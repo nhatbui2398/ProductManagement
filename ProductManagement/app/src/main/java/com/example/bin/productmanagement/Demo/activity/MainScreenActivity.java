@@ -14,27 +14,42 @@ import com.example.bin.productmanagement.Demo.Database.ProductDatabase;
 import com.example.bin.productmanagement.Demo.adapter.ProductAdapter;
 import com.example.bin.productmanagement.Demo.model.MProduct;
 import com.example.bin.productmanagement.R;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 
 
 /**
  * Đây là Class Activity Đầu tiên khi vào sử dụng app
+ *
+ * Chỉnh lại UI
+ * Thêm Ads banner
+ * Interstitial Ad(Ad xen kẽ) chưa hiển thị được
  */
 public class MainScreenActivity extends AppCompatActivity implements View.OnClickListener {
-    RecyclerView rcv_Product;
-    Button btn_Total;
-    static final int REQUEST_CODE_TOTAL = 100;
+    private RecyclerView rcv_Product;
+    private Button btn_Total;
+    private AdView adView;
+    private InterstitialAd mInterstitialAd;
+    private AdRequest adRequest;
 
-    ProductDatabase db;
-    ProductAdapter adapter;
-    ArrayList<MProduct> products;
+    private ProductDatabase db;
+    private ProductAdapter adapter;
+    private ArrayList<MProduct> products;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
         initDB();
         initView();
+        myAdsHandle();
+       /* MobileAds.initialize(this,
+                "ca-app-pub-8101540683171429~9714814472");
+*/
     }
 
     private void initView(){
@@ -42,10 +57,25 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
         btn_Total = findViewById(R.id.btn_Total);
         products = db.getAllProduct();
         adapter = new ProductAdapter(products,this);
+        adView = findViewById(R.id.banner_ads);
         rcv_Product.setAdapter(adapter);
+        //
+
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false);
         rcv_Product.setLayoutManager(linearLayoutManager);
         btn_Total.setOnClickListener(this);
+    }
+
+    private void myAdsHandle(){
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        adView.loadAd(adRequest);
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(String.valueOf(R.string.interstitial_ad_unit_id_test));
+        mInterstitialAd.loadAd(adRequest);
     }
 
     private void initDB(){
@@ -68,6 +98,12 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_Total:{
+                if (mInterstitialAd.isLoaded()) {
+                     mInterstitialAd.show();
+                } else {
+                    Log.d("TAG", "The interstitial wasn't loaded yet.");
+                }
+
                 Intent intent = new Intent(this, TotalActivity.class);
                 for(int i = 0; i<products.size();i++){
                     if(products.get(i).getAmount() != db.getProductAmount(products.get(i).getId())){
@@ -75,8 +111,10 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
                     }
                     Log.e("Amount",""+products.get(i).getId()+"\n"+products.get(i).getAmount());
                 }
-                if(db.getCountProductTotal() > 0)
+                if(db.getCountProductTotal() > 0) {
                     startActivity(intent);
+
+                }
                 else {
                     Toast.makeText(this,"Phải nhập ít nhất 1 sản phẩm",Toast.LENGTH_LONG).show();
                 }

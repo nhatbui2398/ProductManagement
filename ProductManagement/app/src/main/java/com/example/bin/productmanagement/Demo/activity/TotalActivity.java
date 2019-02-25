@@ -14,9 +14,17 @@ import com.example.bin.productmanagement.Demo.Database.ProductDatabase;
 import com.example.bin.productmanagement.Demo.adapter.ProductDetailAdapter;
 import com.example.bin.productmanagement.Demo.model.MProduct;
 import com.example.bin.productmanagement.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 
+/**?
+ * Activity khi bấm button Tính
+ *
+ * Thêm Ad xen kẽ khi chuyển activity
+ */
 public class TotalActivity extends AppCompatActivity implements View.OnClickListener {
     ArrayList<MProduct> list_Prd;
     TextView txt_Point, txt_Total, txt_Count, txt_finalTotal;
@@ -24,6 +32,7 @@ public class TotalActivity extends AppCompatActivity implements View.OnClickList
     ProductDatabase db;
     RecyclerView rcv;
     ProductDetailAdapter adapter;
+
     int count = 0;
     double point = 0, price1 = 0, price2 = 0;
 
@@ -33,6 +42,7 @@ public class TotalActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_total);
         setData();
         connectView();
+
     }
 
     private void connectView(){
@@ -43,6 +53,10 @@ public class TotalActivity extends AppCompatActivity implements View.OnClickList
         btn_back = findViewById(R.id.btn_back);
         rcv = findViewById(R.id.rcv_total);
         btn_back.setOnClickListener(this);
+
+
+
+
 
         setTotal();
     }
