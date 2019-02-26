@@ -33,7 +33,7 @@ public class ProductDetailAdapter extends RecyclerView.Adapter<ProductDetailAdap
     @Override
     public void onBindViewHolder(@NonNull ProductDetailAdapter.MViewHolder mViewHolder, int i) {
         MProduct product = list_prd.get(i);
-        mViewHolder.txt_prd_id.setText(String.valueOf(product.getId()));
+        mViewHolder.txt_prd_id.setText(String.valueOf(i+1));
         mViewHolder.txt_prd_name.setText(product.getName());
         mViewHolder.txt_prd_point.setText(String.valueOf(product.getPoint()));
         mViewHolder.txt_prd_price.setText(String.valueOf(product.getPrice()));
