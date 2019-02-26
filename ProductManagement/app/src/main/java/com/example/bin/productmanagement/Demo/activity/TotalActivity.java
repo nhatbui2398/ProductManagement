@@ -54,10 +54,6 @@ public class TotalActivity extends AppCompatActivity implements View.OnClickList
         rcv = findViewById(R.id.rcv_total);
         btn_back.setOnClickListener(this);
 
-
-
-
-
         setTotal();
     }
 
