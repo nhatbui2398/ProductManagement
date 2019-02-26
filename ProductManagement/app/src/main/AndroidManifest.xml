@@ -27,6 +27,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Demo.activity.TotalActivity"></activity>
+        <activity android:name=".Demo.mvp.productdetail.ProductDetailActivity" />
     </application>
 
 </manifest>
