@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.example.bin.productmanagement.Demo.Database.ProductDatabase;
 import com.example.bin.productmanagement.Demo.adapter.ProductAdapter;
 import com.example.bin.productmanagement.Demo.model.MProduct;
+import com.example.bin.productmanagement.Demo.mvp.productdetail.ProductDetailActivity;
+import com.example.bin.productmanagement.Demo.mvp.productdetail.ProductDetailContract;
 import com.example.bin.productmanagement.R;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -30,7 +32,7 @@ import java.util.ArrayList;
  * Thêm Ads banner
  * Interstitial Ad(Ad xen kẽ) chưa hiển thị được
  */
-public class MainScreenActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainScreenActivity extends AppCompatActivity implements View.OnClickListener{
     private RecyclerView rcv_Product;
     private Button btn_Total;
     private AdView adView;
@@ -164,11 +166,15 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_Total:{
-                if (mInterstitialAd.isLoaded()) {
-                     mInterstitialAd.show();
-                } else {
-                    Log.e("TAG", "The interstitial wasn't loaded yet.");
-                }
+//                if (mInterstitialAd.isLoaded()) {
+//                     mInterstitialAd.show();
+//                } else {
+//                    Log.e("TAG", "The interstitial wasn't loaded yet.");
+//                }
+
+                ProductDetailActivity.showMe(this, 6);
+
+
                 break;
             }
         }
