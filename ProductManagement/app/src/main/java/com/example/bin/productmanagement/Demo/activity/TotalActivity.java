@@ -21,9 +21,8 @@ import com.google.android.gms.ads.MobileAds;
 import java.util.ArrayList;
 
 /**?
- * Activity khi bấm button Tính
+ * Activity xuất hiện sau khi bấm button Tính
  *
- * Thêm Ad xen kẽ khi chuyển activity
  */
 public class TotalActivity extends AppCompatActivity implements View.OnClickListener {
     ArrayList<MProduct> list_Prd;
