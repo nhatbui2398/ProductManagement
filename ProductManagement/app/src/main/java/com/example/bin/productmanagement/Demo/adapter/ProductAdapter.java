@@ -11,16 +11,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.bin.productmanagement.Demo.model.MProduct;
+import com.example.bin.productmanagement.Demo.model.Product;
 import com.example.bin.productmanagement.R;
 
 import java.util.ArrayList;
 
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MViewHolder> {
-    ArrayList<MProduct> listPrd;
+    ArrayList<Product> listPrd;
     View view;
     Context context;
     int amountBefore = -1, amountAfter = -1;
@@ -32,14 +33,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MViewHol
         view = inflater.inflate(R.layout.item_product, viewGroup,false);
         return new MViewHolder(view);
     }
-    public ProductAdapter(ArrayList<MProduct> listPrd, Context context){
+    public ProductAdapter(ArrayList<Product> listPrd, Context context){
         this.listPrd = listPrd;
         this.context = context;
     }
 
     @Override
     public void onBindViewHolder(@NonNull final ProductAdapter.MViewHolder mViewHolder, final int i) {
-        final MProduct product = listPrd.get(i);
+        final Product product = listPrd.get(i);
         mViewHolder.txt_ID.setText(String.valueOf(product.getId()));
         mViewHolder.txt_Name.setText(product.getName());
         if(product.getAmount() > 0){
@@ -48,6 +49,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MViewHol
         else {
             mViewHolder.edt_Amt.setText("0");
         }
+
+        mViewHolder.txt_Name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myProductClickListener.setOnItemClick(context,i);
+            }
+        });
 
         mViewHolder.edt_Amt.addTextChangedListener(new TextWatcher() {
             @Override
@@ -70,12 +78,40 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MViewHol
                 }
             }
         });
+
+        mViewHolder.btnSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!isEmptyAmount(mViewHolder.edt_Amt.getText().toString())){
+                    product.setAmount(product.getAmount()-1);
+                    mViewHolder.edt_Amt.setText(String.valueOf(product.getAmount()));
+                }
+            }
+        });
+
+        mViewHolder.btnPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                product.setAmount(product.getAmount()+1);
+                mViewHolder.edt_Amt.setText(String.valueOf(product.getAmount()));
+            }
+        });
+
+
     }
 
-    public static void main(String[] agrs){
-
+    public interface MyProductClickListener{
+        void setOnItemClick(Context context, int positon);
+    }
+    private boolean isEmptyAmount(String s){
+        return s.equals("0")||TextUtils.isEmpty(s);
     }
 
+    MyProductClickListener myProductClickListener;
+
+    public void setOnItemClickListener(MyProductClickListener myProductClickListener){
+        this.myProductClickListener = myProductClickListener;
+    }
     @Override
     public int getItemCount() {
         return listPrd.size();
@@ -85,11 +121,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MViewHol
         TextView txt_ID;
         TextView txt_Name;
         EditText edt_Amt;
+        ImageView btnSub, btnPlus;
         public MViewHolder(@NonNull View itemView) {
             super(itemView);
             txt_Name = itemView.findViewById(R.id.txt_prdName);
             txt_ID = itemView.findViewById(R.id.txt_prdID);
             edt_Amt = itemView.findViewById(R.id.edt_prdAmt);
+            btnSub = itemView.findViewById(R.id.btn_sub);
+            btnPlus = itemView.findViewById(R.id.btn_plus);
         }
     }
 }

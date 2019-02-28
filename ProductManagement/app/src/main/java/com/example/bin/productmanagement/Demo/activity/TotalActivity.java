@@ -12,11 +12,11 @@ import android.widget.TextView;
 
 import com.example.bin.productmanagement.Demo.Database.ProductDatabase;
 import com.example.bin.productmanagement.Demo.adapter.ProductDetailAdapter;
-import com.example.bin.productmanagement.Demo.model.MProduct;
+import com.example.bin.productmanagement.Demo.model.Product;
 import com.example.bin.productmanagement.R;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 
@@ -25,12 +25,13 @@ import java.util.ArrayList;
  *
  */
 public class TotalActivity extends AppCompatActivity implements View.OnClickListener {
-    ArrayList<MProduct> list_Prd;
+    ArrayList<Product> list_Prd;
     TextView txt_Point, txt_Total, txt_Count, txt_finalTotal;
     ImageView btn_back;
     ProductDatabase db;
     RecyclerView rcv;
     ProductDetailAdapter adapter;
+    InterstitialAd mInterstitialAd;
 
     int count = 0;
     double point = 0, price1 = 0, price2 = 0;
@@ -41,7 +42,54 @@ public class TotalActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_total);
         setData();
         connectView();
+        myAdsHandle();
 
+    }
+
+    private void myAdsHandle() {
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.loadAd(adRequest);
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+                Log.e("Interstitial ads", "onAdLoaded");
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                // Code to be executed when an ad request fails.
+                Log.e("Interstitial ads", "onAdFailedToLoad");
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when the ad is displayed.
+                Log.e("Interstitial ads", "onAdOpened");
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+                Log.e("Interstitial ads", "onAdLeftApplication");
+            }
+
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when the interstitial ad is closed.
+                Log.e("Interstitial ads", "onAdClosed");
+            }
+        });
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.e("TAG", "The interstitial wasn't loaded yet.");
+        }
     }
 
     private void connectView(){
@@ -60,7 +108,7 @@ public class TotalActivity extends AppCompatActivity implements View.OnClickList
         db = new ProductDatabase(this);
         list_Prd = db.getProduct();
         for(int i = 0; i < list_Prd.size();i++){
-            MProduct product = list_Prd.get(i);
+            Product product = list_Prd.get(i);
             Log.e("TotalActivity","\nProduct: "+product.getName()+"\n"
                     +product.getPoint()+"\n"+product.getPrice()
                     +"\n"+product.getDiscount1()+"\n"+product.getDiscount2()
@@ -74,7 +122,7 @@ public class TotalActivity extends AppCompatActivity implements View.OnClickList
         if(count > 0){
             count = 0;
             for(int i = 0; i < list_Prd.size(); i++){
-                MProduct pro = list_Prd.get(i);
+                Product pro = list_Prd.get(i);
                 point += pro.getPoint();
                 price1 += pro.getPrice()*pro.getAmount();
                 price2 += pro.getDiscount1()*pro.getAmount();

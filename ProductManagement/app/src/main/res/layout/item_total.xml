@@ -13,6 +13,7 @@
         android:text="stt"
         android:textSize="18sp"
         android:gravity="center"
+        android:textColor="#ffffff"
         />
     <TextView
         android:layout_weight="2"
@@ -22,6 +23,7 @@
         android:text="name"
         android:textSize="18sp"
         android:gravity="center"
+        android:textColor="#ffffff"
         />
     <TextView
         android:layout_weight="2"
@@ -31,6 +33,7 @@
         android:text="point"
         android:textSize="18sp"
         android:gravity="center"
+        android:textColor="#ffffff"
         />
     <TextView
         android:layout_weight="4"
@@ -40,6 +43,7 @@
         android:text="price"
         android:textSize="18sp"
         android:gravity="center"
+        android:textColor="#ffffff"
         />
     <TextView
         android:layout_weight="2"
@@ -49,6 +53,7 @@
         android:text="amount"
         android:textSize="18sp"
         android:gravity="center"
+        android:textColor="#ffffff"
         />
 
 </LinearLayout>

@@ -1,9 +1,9 @@
 package com.example.bin.productmanagement.Demo.model;
 
-public class MProduct {
+public class Product {
     int id;
 
-    public MProduct(int id, String name, int amount) {
+    public Product(int id, String name, int amount) {
         this.id = id;
         this.name = name;
         this.amount = amount;
@@ -90,7 +90,7 @@ public class MProduct {
         this.amount = amount;
     }
 
-    public MProduct(int id, String name, double price, double point, double discount1, double discount2, double discount3, double discount4, int amount) {
+    public Product(int id, String name, double price, double point, double discount1, double discount2, double discount3, double discount4, int amount) {
         this.id = id;
         this.name = name;
         this.point = point;

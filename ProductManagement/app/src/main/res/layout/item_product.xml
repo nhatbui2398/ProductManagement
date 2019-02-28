@@ -6,35 +6,51 @@
     android:layout_marginLeft="5dp"
     >
     <TextView
-        android:layout_weight="1"
         android:gravity="center"
         android:id="@+id/txt_prdID"
         android:textSize="18sp"
-        android:layout_width="50dp"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:text="STT"
         android:layout_marginRight="10dp"
+        android:textColor="#ffffff"
         />
+
     <TextView
-        android:layout_weight="7"
         android:id="@+id/txt_prdName"
-        android:textSize="18sp"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Tên sản phẩm"
         android:layout_marginRight="5dp"
+        android:layout_weight="1"
         android:gravity="center"
+        android:text="Tên sản phẩm"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+    <ImageView
+        android:id="@+id/btn_sub"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/minus"
+        android:layout_marginTop="5dp"
         />
     <EditText
-        android:layout_weight="2"
         android:gravity="center"
         android:id="@+id/edt_prdAmt"
         android:textSize="18sp"
-        android:layout_width="100dp"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
         android:inputType="number"
         android:hint="0"
+        android:textColor="#ffffff"
         />
-
+    <ImageView
+        android:layout_marginTop="5dp"
+        android:id="@+id/btn_plus"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/plus"
+        />
 </LinearLayout>

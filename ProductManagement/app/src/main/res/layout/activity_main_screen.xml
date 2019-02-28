@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     tools:context=".Demo.activity.MainScreenActivity"
-    android:background="#13a1a1"
+    android:background="#60ad5e"
     >
     <ScrollView
         android:fillViewport="true"
@@ -21,7 +21,7 @@
             android:layout_margin="5dp"
             >
             <LinearLayout
-                android:background="#66ff66"
+                android:background="#2e7d32"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -37,7 +37,7 @@
                     android:layout_height="wrap_content"
                     android:text="STT"
                     android:layout_marginRight="10dp"
-                    android:textColor="#100"
+                    android:textColor="#ffffff"
                     android:textStyle="bold"
                     />
                 <TextView
@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:text="Tên sản phẩm"
                     android:layout_marginRight="5dp"
-                    android:textColor="#100"
+                    android:textColor="#ffffff"
                     android:textStyle="bold"
                     />
                 <TextView
@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:text="Số lượng"
                     android:inputType="number"
-                    android:textColor="#100"
+                    android:textColor="#ffffff"
                     android:textStyle="bold"
                     android:layout_marginRight="5dp"
                     />
@@ -74,11 +74,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="BẢNG TÍNH"
+                android:background="#64b5f6"
+                android:textColor="#000000"
+                android:textStyle="bold"
                 />
         </LinearLayout>
     </ScrollView>
 
     <com.google.android.gms.ads.AdView
+        android:layout_marginTop="5dp"
         android:id="@+id/banner_ads"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,11 +1,12 @@
 package com.example.bin.productmanagement.Demo.mvp.productdetail;
 
-import com.example.bin.productmanagement.Demo.model.MProduct;
+
+import com.example.bin.productmanagement.Demo.model.Product;
 
 public interface ProductDetailContract {
 
     public interface View{
-        public void showProduct(MProduct product);
+        public void showProduct(Product product);
 
     }
 

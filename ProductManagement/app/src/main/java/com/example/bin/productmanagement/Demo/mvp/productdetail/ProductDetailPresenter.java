@@ -3,7 +3,7 @@ package com.example.bin.productmanagement.Demo.mvp.productdetail;
 import android.content.Context;
 
 import com.example.bin.productmanagement.Demo.Database.ProductDatabase;
-import com.example.bin.productmanagement.Demo.model.MProduct;
+import com.example.bin.productmanagement.Demo.model.Product;
 
 public class ProductDetailPresenter implements ProductDetailContract.Presenter {
 
@@ -19,7 +19,7 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
 
     @Override
     public void loadProductById(int id) {
-        MProduct product = database.getProductByID(id);
+        Product product = database.getProductByID(id);
 
         // Show Lên View
         view.showProduct(product);

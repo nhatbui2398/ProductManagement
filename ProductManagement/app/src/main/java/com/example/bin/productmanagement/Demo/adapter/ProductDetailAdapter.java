@@ -8,13 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.bin.productmanagement.Demo.model.MProduct;
+import com.example.bin.productmanagement.Demo.model.Product;
 import com.example.bin.productmanagement.R;
 
 import java.util.ArrayList;
 
 public class ProductDetailAdapter extends RecyclerView.Adapter<ProductDetailAdapter.MViewHolder> {
-    ArrayList<MProduct> list_prd;
+    ArrayList<Product> list_prd;
     Context context;
     View view;
     @NonNull
@@ -25,14 +25,14 @@ public class ProductDetailAdapter extends RecyclerView.Adapter<ProductDetailAdap
         return new ProductDetailAdapter.MViewHolder(view);
     }
 
-    public ProductDetailAdapter(ArrayList<MProduct> list_prd, Context context){
+    public ProductDetailAdapter(ArrayList<Product> list_prd, Context context){
         this.list_prd = list_prd;
         this.context = context;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ProductDetailAdapter.MViewHolder mViewHolder, int i) {
-        MProduct product = list_prd.get(i);
+        Product product = list_prd.get(i);
         mViewHolder.txt_prd_id.setText(String.valueOf(i+1));
         mViewHolder.txt_prd_name.setText(product.getName());
         mViewHolder.txt_prd_point.setText(String.valueOf(product.getPoint()));

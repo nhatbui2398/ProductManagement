@@ -1,5 +1,7 @@
 package com.example.bin.productmanagement.Demo.activity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,9 +14,8 @@ import android.widget.Toast;
 
 import com.example.bin.productmanagement.Demo.Database.ProductDatabase;
 import com.example.bin.productmanagement.Demo.adapter.ProductAdapter;
-import com.example.bin.productmanagement.Demo.model.MProduct;
+import com.example.bin.productmanagement.Demo.model.Product;
 import com.example.bin.productmanagement.Demo.mvp.productdetail.ProductDetailActivity;
-import com.example.bin.productmanagement.Demo.mvp.productdetail.ProductDetailContract;
 import com.example.bin.productmanagement.R;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -28,20 +29,16 @@ import java.util.ArrayList;
 /**
  * Đây là Class Activity Đầu tiên khi vào sử dụng app
  *
- * Chỉnh lại UI
- * Thêm Ads banner
- * Interstitial Ad(Ad xen kẽ) chưa hiển thị được
  */
 public class MainScreenActivity extends AppCompatActivity implements View.OnClickListener{
     private RecyclerView rcv_Product;
     private Button btn_Total;
     private AdView adView;
     private InterstitialAd mInterstitialAd;
-    private AdRequest adRequest;
 
     private ProductDatabase db;
     private ProductAdapter adapter;
-    private ArrayList<MProduct> products;
+    private ArrayList<Product> products;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,13 +57,17 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
         adapter = new ProductAdapter(products,this);
         adView = findViewById(R.id.banner_ads);
         rcv_Product.setAdapter(adapter);
-        mInterstitialAd = new InterstitialAd(this);
         //
-
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false);
         rcv_Product.setLayoutManager(linearLayoutManager);
         btn_Total.setOnClickListener(this);
+
+        adapter.setOnItemClickListener(new ProductAdapter.MyProductClickListener() {
+            @Override
+            public void setOnItemClick(Context context, int positon) {
+                ProductDetailActivity.showMe((Activity) context, positon);
+            }
+        });
     }
 
     private void myAdsHandle(){
@@ -107,42 +108,6 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
-        mInterstitialAd.loadAd(adRequest);
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                // Code to be executed when an ad finishes loading.
-                Log.e("Interstitial ads","onAdLoaded");
-            }
-
-            @Override
-            public void onAdFailedToLoad(int errorCode) {
-                // Code to be executed when an ad request fails.
-                checkChangeActivity();
-                Log.e("Interstitial ads","onAdFailedToLoad");
-            }
-
-            @Override
-            public void onAdOpened() {
-                // Code to be executed when the ad is displayed.
-                Log.e("Interstitial ads","onAdOpened");
-            }
-
-            @Override
-            public void onAdLeftApplication() {
-                // Code to be executed when the user has left the app.
-                Log.e("Interstitial ads","onAdLeftApplication");
-            }
-
-            @Override
-            public void onAdClosed() {
-                // Code to be executed when the interstitial ad is closed.
-                Log.e("Interstitial ads","onAdClosed");
-                checkChangeActivity();
-            }
-        });
-
         Log.e("Ads Handle","Already");
     }
 
@@ -153,28 +118,11 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
-    private static MainScreenActivity instance;
-
-    public static MainScreenActivity getInstance() {
-        if (instance == null) {
-            instance = new MainScreenActivity();
-        }
-        return instance;
-    }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_Total:{
-//                if (mInterstitialAd.isLoaded()) {
-//                     mInterstitialAd.show();
-//                } else {
-//                    Log.e("TAG", "The interstitial wasn't loaded yet.");
-//                }
-
-                ProductDetailActivity.showMe(this, 6);
-
-
+                checkChangeActivity();
                 break;
             }
         }

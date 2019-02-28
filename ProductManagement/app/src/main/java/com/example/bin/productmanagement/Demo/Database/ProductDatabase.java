@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.bin.productmanagement.Demo.model.MProduct;
+import com.example.bin.productmanagement.Demo.model.Product;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -74,7 +74,7 @@ public class ProductDatabase extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    private ContentValues getParams(MProduct product){
+    private ContentValues getParams(Product product){
         ContentValues values = new ContentValues();
         values.put(COL_PRODUCT_ID, product.getId());
         values.put(COL_PRODUCT_NAME, product.getName());
@@ -88,11 +88,11 @@ public class ProductDatabase extends SQLiteOpenHelper {
         return values;
     }
 
-    public MProduct getProductByID(int id){
+    public Product getProductByID(int id){
         SQLiteDatabase db = this.getReadableDatabase();
         //tạo cursor đọc dòng dl theo cột
         Cursor cursor = db.query(TABLE_PRODUCT
-                , new String[]{COL_PRODUCT_ID,COL_PRODUCT_NAME,COL_PRODUCT_POINT,COL_PRODUCT_PRICE
+                , new String[]{COL_PRODUCT_ID,COL_PRODUCT_NAME,COL_PRODUCT_PRICE,COL_PRODUCT_POINT
                         ,COL_PRODUCT_DIS1,COL_PRODUCT_DIS2,COL_PRODUCT_DIS3,COL_PRODUCT_DIS4,COL_PRODUCT_AMT}
                 ,COL_PRODUCT_ID+"=?"
                 ,new String[] {String.valueOf(id)},null,null,null,null);
@@ -101,7 +101,7 @@ public class ProductDatabase extends SQLiteOpenHelper {
         }
         else return null;
 
-        MProduct product = new MProduct(cursor.getInt(0),cursor.getString(1),cursor.getDouble(2)
+        Product product = new Product(cursor.getInt(0),cursor.getString(1),cursor.getDouble(2)
                 ,cursor.getDouble(3),cursor.getDouble(4),cursor.getDouble(5),cursor.getDouble(6)
                 ,cursor.getDouble(7),cursor.getInt(8));
         cursor.close();
@@ -122,8 +122,8 @@ public class ProductDatabase extends SQLiteOpenHelper {
             return 0;
     }
 
-    public ArrayList<MProduct> getAllProduct(){
-        ArrayList<MProduct> listProduct = new ArrayList<>();
+    public ArrayList<Product> getAllProduct(){
+        ArrayList<Product> listProduct = new ArrayList<>();
         String query = "SELECT "+COL_PRODUCT_ID+", "+COL_PRODUCT_NAME+", "+COL_PRODUCT_PRICE
                 +", "+COL_PRODUCT_POINT+", "+COL_PRODUCT_DIS1+", "+COL_PRODUCT_DIS2+", "+COL_PRODUCT_DIS3+", "+COL_PRODUCT_DIS4+", "+COL_PRODUCT_AMT +" FROM "+TABLE_PRODUCT;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -131,7 +131,7 @@ public class ProductDatabase extends SQLiteOpenHelper {
         if (cursor != null){
             cursor.moveToFirst();
             do {
-                listProduct.add( new MProduct(cursor.getInt(0),cursor.getString(1),cursor.getDouble(2)
+                listProduct.add( new Product(cursor.getInt(0),cursor.getString(1),cursor.getDouble(2)
                         ,cursor.getDouble(3),cursor.getDouble(4),cursor.getDouble(5),cursor.getDouble(6)
                         ,cursor.getDouble(7),cursor.getInt(8)));
             }while (cursor.moveToNext());
@@ -141,8 +141,8 @@ public class ProductDatabase extends SQLiteOpenHelper {
         return listProduct;
     }
 
-    public ArrayList<MProduct> getProduct(){
-        ArrayList<MProduct> listProduct = new ArrayList<>();
+    public ArrayList<Product> getProduct(){
+        ArrayList<Product> listProduct = new ArrayList<>();
         String query = "SELECT "+COL_PRODUCT_ID+", "+COL_PRODUCT_NAME+", "+COL_PRODUCT_PRICE
                 +", "+COL_PRODUCT_POINT+", "+COL_PRODUCT_DIS1+", "+COL_PRODUCT_DIS2+", "+COL_PRODUCT_DIS3+", "+COL_PRODUCT_DIS4
                 +", "+COL_PRODUCT_AMT +" FROM "+TABLE_PRODUCT+" WHERE "+COL_PRODUCT_AMT+ " > 0";
@@ -151,7 +151,7 @@ public class ProductDatabase extends SQLiteOpenHelper {
         if (cursor != null){
             cursor.moveToFirst();
             do {
-                listProduct.add( new MProduct(cursor.getInt(0),cursor.getString(1),cursor.getDouble(2)
+                listProduct.add( new Product(cursor.getInt(0),cursor.getString(1),cursor.getDouble(2)
                         ,cursor.getDouble(3),cursor.getDouble(4),cursor.getDouble(5),cursor.getDouble(6)
                         ,cursor.getDouble(7),cursor.getInt(8)));
             }while (cursor.moveToNext());
