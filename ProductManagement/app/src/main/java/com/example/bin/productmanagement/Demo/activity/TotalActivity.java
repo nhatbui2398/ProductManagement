@@ -1,12 +1,14 @@
 package com.example.bin.productmanagement.Demo.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,21 +30,24 @@ public class TotalActivity extends AppCompatActivity implements View.OnClickList
     ArrayList<Product> list_Prd;
     TextView txt_Point, txt_Total, txt_Count, txt_finalTotal;
     ImageView btn_back;
+    Button btnDiscount25, btnDiscount35, btnDiscount42, btnDiscount50, btnCurrent;
     ProductDatabase db;
     RecyclerView rcv;
     ProductDetailAdapter adapter;
     InterstitialAd mInterstitialAd;
+    final String DISCOUNT_25 ="discount_25";
+    final String DISCOUNT_35 ="discount_35";
+    final String DISCOUNT_42 ="discount_42";
+    final String DISCOUNT_50 ="discount_50";
 
-    int count = 0;
-    double point = 0, price1 = 0, price2 = 0;
-
+    String mCurrentDisType = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_total);
+        //myAdsHandle();
         setData();
         connectView();
-        myAdsHandle();
 
     }
 
@@ -85,6 +90,7 @@ public class TotalActivity extends AppCompatActivity implements View.OnClickList
                 Log.e("Interstitial ads", "onAdClosed");
             }
         });
+
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         } else {
@@ -98,10 +104,67 @@ public class TotalActivity extends AppCompatActivity implements View.OnClickList
         txt_Count = findViewById(R.id.txt_count);
         txt_finalTotal = findViewById(R.id.txt_finalTotal);
         btn_back = findViewById(R.id.btn_back);
+        btnDiscount25 = findViewById(R.id.btn_discount_25);
+        btnDiscount35 = findViewById(R.id.btn_discount_35);
+        btnDiscount42 = findViewById(R.id.btn_discount_42);
+        btnDiscount50 = findViewById(R.id.btn_discount_50);
         rcv = findViewById(R.id.rcv_total);
         btn_back.setOnClickListener(this);
+        btnDiscount25.setOnClickListener(this);
+        btnDiscount35.setOnClickListener(this);
+        btnDiscount42.setOnClickListener(this);
+        btnDiscount50.setOnClickListener(this);
 
-        setTotal();
+        cashOrders();
+    }
+
+    private void changeTypeDiscount(Button selectionBtnDis, String selectionDisID){
+        if(mCurrentDisType.equals(selectionDisID)){
+            return;
+        }
+        else {
+            if(btnCurrent!=null){
+                btnCurrent.setTextColor(getResources().getColor(R.color.colorWhiteText));
+                btnCurrent.setBackgroundColor(getResources().getColor(R.color.colorNormalBackground));
+            }
+            selectionBtnDis.setBackgroundColor(getResources().getColor(R.color.colorSelectorBackground));
+            selectionBtnDis.setTextColor(getResources().getColor(R.color.colorBlackText));
+            btnCurrent = findViewById(selectionBtnDis.getId());
+            mCurrentDisType = selectionDisID;
+            //selectionBtnDis.setBackgroundColor();
+        }
+    }
+
+    private double getDiscountPrice(Product product){
+        switch (mCurrentDisType){
+            case DISCOUNT_25:{
+                return product.getDiscount1();
+            }
+            case DISCOUNT_35:{
+                return product.getDiscount2();
+            }
+            case DISCOUNT_42:{
+                return product.getDiscount3();
+            }
+            case DISCOUNT_50:{
+                return product.getDiscount4();
+            }
+            default:{
+                return product.getPrice();
+            }
+        }
+    }
+
+    private void changeResultDiscount(){
+        double price2 = 0;
+        if(db.getCountProductTotal() > 0){
+            for(int i = 0; i < list_Prd.size(); i++){
+                Product pro = list_Prd.get(i);
+                price2 += getDiscountPrice(pro)*pro.getAmount();
+            }
+            price2 += 88000;
+            txt_finalTotal.setText(String.valueOf(Math.round(price2*100)/100));
+        }
     }
 
     private void setData(){
@@ -117,15 +180,16 @@ public class TotalActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    private void setTotal(){
-        count = db.getCountProductTotal();
-        if(count > 0){
-            count = 0;
+    private void cashOrders(){
+        if(list_Prd.size() > 0){
+            int count = 0;
+            double point = 0, price1 = 0, price2 = 0;
             for(int i = 0; i < list_Prd.size(); i++){
                 Product pro = list_Prd.get(i);
                 point += pro.getPoint();
                 price1 += pro.getPrice()*pro.getAmount();
-                price2 += pro.getDiscount1()*pro.getAmount();
+                price2 += getDiscountPrice(pro)*pro.getAmount();
+                Log.e("Cashing","Type Discount: "+mCurrentDisType+" discount price: "+getDiscountPrice(pro));
                 count += pro.getAmount();
             }
             price2 += 88000;
@@ -145,22 +209,29 @@ public class TotalActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_back:{
-                Intent intent = new Intent(this, MainScreenActivity.class);
-                startActivity(intent);
+                finish();
+                break;
+            }
+            case R.id.btn_discount_25:{
+                changeTypeDiscount(btnDiscount25, DISCOUNT_25);
+                changeResultDiscount();
+                break;
+            }
+            case R.id.btn_discount_35:{
+                changeTypeDiscount(btnDiscount35, DISCOUNT_35);
+                changeResultDiscount();
+                break;
+            }
+            case R.id.btn_discount_42:{
+                changeTypeDiscount(btnDiscount42, DISCOUNT_42);
+                changeResultDiscount();
+                break;
+            }
+            case R.id.btn_discount_50:{
+                changeTypeDiscount(btnDiscount50, DISCOUNT_50);
+                changeResultDiscount();
                 break;
             }
         }
     }
-
-    /*private String editCurrency(double numb){
-        int i = 1;
-        String s = String.valueOf(Math.round(numb*10)/10);
-        do {
-            i++;
-        }while (s.length() > 3 * i);
-        if(i-1>0){
-            for(int j = i;j>0;j--){
-            }
-        }
-    }*/
 }

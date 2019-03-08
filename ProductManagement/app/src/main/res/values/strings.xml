@@ -4,4 +4,7 @@
     <string name="banner_ad_unit_id">ca-app-pub-8101540683171429/3824510771</string>
     <string name="interstitial_ad_unit_id_test">ca-app-pub-3940256099942544/1033173712</string>
     <string name="interstitial_ad_unit_id">ca-app-pub-8101540683171429/1744378007</string>
+    <string name="list_product">Danh sách sản phẩm</string>
+    <string name="history">Lịch sử</string>
+    <string name="setting">Cài đặt</string>
 </resources>

@@ -3,13 +3,22 @@ package com.example.bin.productmanagement.Demo.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.bin.productmanagement.Demo.Database.ProductDatabase;
@@ -31,10 +40,11 @@ import java.util.ArrayList;
  *
  */
 public class MainScreenActivity extends AppCompatActivity implements View.OnClickListener{
-    private RecyclerView rcv_Product;
-    private Button btn_Total;
+    private RecyclerView rcvProduct;
+    private Button btnTotal;
     private AdView adView;
-    private InterstitialAd mInterstitialAd;
+    private DrawerLayout mDrawerLayout;
+    private ImageView btnMenu;
 
     private ProductDatabase db;
     private ProductAdapter adapter;
@@ -46,21 +56,45 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
         initDB();
         initView();
         myAdsHandle();
-        /*MobileAds.initialize(this,
-                "ca-app-pub-8101540683171429~9714814472");*/
+
     }
 
     private void initView(){
-        rcv_Product = findViewById(R.id.rcv_prd);
-        btn_Total = findViewById(R.id.btn_Total);
+        rcvProduct = findViewById(R.id.rcv_prd);
+        btnTotal = findViewById(R.id.btn_Total);
         products = db.getAllProduct();
         adapter = new ProductAdapter(products,this);
         adView = findViewById(R.id.banner_ads);
-        rcv_Product.setAdapter(adapter);
+        btnMenu = findViewById(R.id.btn_home);
+        btnMenu.setOnClickListener(this);
+        rcvProduct.setAdapter(adapter);
+
+        mDrawerLayout = findViewById(R.id.drawer);
+        NavigationView mNavigationView = findViewById(R.id.nav_view);
+        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                // set item as selected to persist highlight
+                menuItem.setChecked(true);
+                switch (menuItem.getItemId()){
+                    case R.id.nav_product_manager:{
+                        Toast.makeText(getApplicationContext(),"nav_product_manager",Toast.LENGTH_SHORT).show();
+                        break;
+                    }
+                }
+                // close drawer when item is tapped
+                mDrawerLayout.closeDrawers();
+
+                // Add code here to update the UI based on the item selected
+                // For example, swap UI fragments here
+
+                return true;
+            }
+        });
         //
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false);
-        rcv_Product.setLayoutManager(linearLayoutManager);
-        btn_Total.setOnClickListener(this);
+        rcvProduct.setLayoutManager(linearLayoutManager);
+        btnTotal.setOnClickListener(this);
 
         adapter.setOnItemClickListener(new ProductAdapter.MyProductClickListener() {
             @Override
@@ -69,6 +103,16 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
             }
         });
     }
+
+    /*@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }*/
 
     private void myAdsHandle(){
         AdRequest adRequest = new AdRequest.Builder()
@@ -123,6 +167,10 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
         switch (v.getId()){
             case R.id.btn_Total:{
                 checkChangeActivity();
+                break;
+            }
+            case R.id.btn_home:{
+                mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
             }
         }

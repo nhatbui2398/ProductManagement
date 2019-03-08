@@ -102,7 +102,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tổng giá trị sản phẩm: "
+                    android:text="Tổng giá trị đơn hàng: "
                     android:layout_marginRight="5dp"
                     android:textSize="16sp"
                     android:textColor="#ffffff"
@@ -154,15 +154,17 @@
 
                     />
                 <Button
+                    android:id="@+id/btn_discount_25"
                     android:layout_width="60dp"
                     android:layout_height="50dp"
                     android:text="25%"
                     android:textSize="16sp"
-                    android:background="#66ccff"
-                    android:textColor="#000000"
+                    android:background="@color/colorNormalBackground"
+                    android:textColor="@color/colorWhiteText"
                     android:layout_marginRight="5dp"
                     />
                 <Button
+                    android:id="@+id/btn_discount_35"
                     android:layout_width="60dp"
                     android:layout_height="50dp"
                     android:text="35%"
@@ -172,6 +174,7 @@
                     android:layout_marginRight="5dp"
                     />
                 <Button
+                    android:id="@+id/btn_discount_42"
                     android:layout_width="60dp"
                     android:layout_height="50dp"
                     android:text="42%"
@@ -181,6 +184,7 @@
                     android:layout_marginRight="5dp"
                     />
                 <Button
+                    android:id="@+id/btn_discount_50"
                     android:layout_width="60dp"
                     android:layout_height="50dp"
                     android:text="50%"

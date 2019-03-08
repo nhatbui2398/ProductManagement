@@ -88,6 +88,21 @@ public class ProductDatabase extends SQLiteOpenHelper {
         return values;
     }
 
+    public long addProduct(Product product){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long rowNumber = db.insert(TABLE_PRODUCT,null,getParams(product));
+        db.close();
+        return rowNumber;
+    }
+
+    public int deleteProduct(int ID){
+        SQLiteDatabase db = this.getWritableDatabase();
+        int rowNumber = db.delete(TABLE_PRODUCT,COL_PRODUCT_ID+"=?", new String[] {String.valueOf(ID)});
+        db.close();
+        return rowNumber;
+    }
+
+
     public Product getProductByID(int id){
         SQLiteDatabase db = this.getReadableDatabase();
         //tạo cursor đọc dòng dl theo cột
@@ -108,6 +123,7 @@ public class ProductDatabase extends SQLiteOpenHelper {
         db.close();
         return product;
     }
+
 
     public int getProductAmount(int id){
         SQLiteDatabase db = getReadableDatabase();

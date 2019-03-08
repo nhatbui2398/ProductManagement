@@ -24,8 +24,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MViewHol
     ArrayList<Product> listPrd;
     View view;
     Context context;
-    int amountBefore = -1, amountAfter = -1;
-    //String
     @NonNull
     @Override
     public ProductAdapter.MViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -60,15 +58,23 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MViewHol
         mViewHolder.edt_Amt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //s = current text, start = position input, count = số ký tự bị xóa, after = số ký tự thêm vào
+                Log.e("beforeTextChanged","Current text: "+mViewHolder.edt_Amt.getText().toString()
+                        +"\ns : "+s+"\nstart : "+start+"\ncount : "+count+"\nafter : "+after);
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //s = current text, start = position input,
+                // before = 0, nếu xóa thì before = số char trước đó, count = số lượng char nhập vào
+                Log.e("onTextChanged","Current text: "+mViewHolder.edt_Amt.getText().toString()
+                        +"\ns : "+s+"\nstart : "+start+"\nbefore : "+before+"\ncount : "+count);
 
             }
 
             @Override
             public void afterTextChanged(Editable s) {
+                Log.e("afterTextChanged","Editable : "+s.toString());
                 if (TextUtils.isEmpty(s)){
                     mViewHolder.edt_Amt.setText("0");
                     product.setAmount(0);
@@ -82,7 +88,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MViewHol
         mViewHolder.btnSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!isEmptyAmount(mViewHolder.edt_Amt.getText().toString())){
+                if(!isEmptyAmount(mViewHolder.edt_Amt.getText().toString()) && Integer.parseInt(mViewHolder.edt_Amt.getText().toString())-1>=0 ){
                     product.setAmount(product.getAmount()-1);
                     mViewHolder.edt_Amt.setText(String.valueOf(product.getAmount()));
                 }

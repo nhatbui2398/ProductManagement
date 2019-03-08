@@ -1,95 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     tools:context=".Demo.activity.MainScreenActivity"
-    android:background="#60ad5e"
+    android:fitsSystemWindows="true"
+    android:id="@+id/drawer"
     >
-    <ScrollView
-        android:fillViewport="true"
-        android:layout_above="@+id/banner_ads"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_margin="5dp"
+            android:layout_height="?attr/actionBarSize"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="#005005"
             >
             <LinearLayout
-                android:background="#2e7d32"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="5dp"
-                android:padding="5dp"
-                android:gravity="center_vertical"
                 >
-                <TextView
-                    android:gravity="center"
-                    android:id="@+id/title_Id"
-                    android:textSize="16sp"
-                    android:layout_width="50dp"
+
+                <ImageView
+                    android:id="@+id/btn_home"
+                    android:layout_width="35dp"
                     android:layout_height="wrap_content"
-                    android:text="STT"
-                    android:layout_marginRight="10dp"
-                    android:textColor="#ffffff"
-                    android:textStyle="bold"
-                    />
-                <TextView
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textSize="16sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tên sản phẩm"
-                    android:layout_marginRight="5dp"
-                    android:textColor="#ffffff"
-                    android:textStyle="bold"
-                    />
-                <TextView
-                    android:textSize="16sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Số lượng"
-                    android:inputType="number"
-                    android:textColor="#ffffff"
-                    android:textStyle="bold"
-                    android:layout_marginRight="5dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/icon_menu"
+
                     />
             </LinearLayout>
-            <android.support.v7.widget.RecyclerView
-                android:layout_weight="1"
-                android:id="@+id/rcv_prd"
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#60ad5e"
+            >
+            <ScrollView
+                android:fillViewport="true"
+                android:layout_above="@+id/banner_ads"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="match_parent"
                 >
-            </android.support.v7.widget.RecyclerView>
-            <Button
-                android:id="@+id/btn_Total"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_margin="5dp"
+                    >
+                    <LinearLayout
+                        android:background="#2e7d32"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="5dp"
+                        android:padding="5dp"
+                        android:gravity="center_vertical"
+                        >
+                        <TextView
+                            android:gravity="center"
+                            android:id="@+id/title_Id"
+                            android:textSize="16sp"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:text="STT"
+                            android:layout_marginRight="5dp"
+                            android:textColor="#ffffff"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textSize="16sp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Tên sản phẩm"
+                            android:layout_marginRight="5dp"
+                            android:textColor="#ffffff"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:textSize="16sp"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Số lượng"
+                            android:inputType="number"
+                            android:textColor="#ffffff"
+                            android:textStyle="bold"
+                            android:layout_marginRight="5dp"
+                            />
+                    </LinearLayout>
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_weight="1"
+                        android:id="@+id/rcv_prd"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        >
+                    </android.support.v7.widget.RecyclerView>
+                    <Button
+                        android:id="@+id/btn_Total"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="BẢNG TÍNH"
+                        android:background="#64b5f6"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
+            </ScrollView>
+
+            <com.google.android.gms.ads.AdView
+                android:layout_marginTop="5dp"
+                android:id="@+id/banner_ads"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="BẢNG TÍNH"
-                android:background="#64b5f6"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                />
-        </LinearLayout>
-    </ScrollView>
+                android:layout_alignParentBottom="true"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/banner_ad_unit_id_test"
+                >
+            </com.google.android.gms.ads.AdView>
 
-    <com.google.android.gms.ads.AdView
-        android:layout_marginTop="5dp"
-        android:id="@+id/banner_ads"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id_test"
-        >
-    </com.google.android.gms.ads.AdView>
+        </RelativeLayout>
+    </LinearLayout>
 
-</RelativeLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        ads:menu="@menu/drawer_view"
+        ads:headerLayout="@layout/nav_header"
+        />
+
+</android.support.v4.widget.DrawerLayout>
