@@ -7,4 +7,18 @@
     <string name="list_product">Danh sách sản phẩm</string>
     <string name="history">Lịch sử</string>
     <string name="setting">Cài đặt</string>
+    <string name="default_number">0</string>
+    <string name="point">Point: </string>
+    <string name="name">Name: </string>
+    <string name="id">ID: </string>
+    <string name="discount_50">Discount 50%: </string>
+    <string name="discount_42">Discount 42%: </string>
+    <string name="discount_25">Discount 25%: </string>
+    <string name="discount_35">Discount 35%: </string>
+    <string name="price">Price: </string>
+    <string name="edit_product">Edit Product</string>
+    <string name="add_product">Add Product</string>
+    <string name="update">Update</string>
+    <string name="cancel">Cancel</string>
+    <string name="IsEmptyInfo">Không để trống thông tin sản phẩm</string>
 </resources>

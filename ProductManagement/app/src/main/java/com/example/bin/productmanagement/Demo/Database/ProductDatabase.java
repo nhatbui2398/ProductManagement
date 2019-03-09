@@ -78,8 +78,8 @@ public class ProductDatabase extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COL_PRODUCT_ID, product.getId());
         values.put(COL_PRODUCT_NAME, product.getName());
-        values.put(COL_PRODUCT_POINT, product.getPoint());
         values.put(COL_PRODUCT_PRICE, product.getPrice());
+        values.put(COL_PRODUCT_POINT, product.getPoint());
         values.put(COL_PRODUCT_DIS1, product.getDiscount1());
         values.put(COL_PRODUCT_DIS2, product.getDiscount2());
         values.put(COL_PRODUCT_DIS3, product.getDiscount3());
@@ -91,6 +91,13 @@ public class ProductDatabase extends SQLiteOpenHelper {
     public long addProduct(Product product){
         SQLiteDatabase db = this.getWritableDatabase();
         long rowNumber = db.insert(TABLE_PRODUCT,null,getParams(product));
+        db.close();
+        return rowNumber;
+    }
+
+    public int updateProduct(Product product){
+        SQLiteDatabase db = this.getWritableDatabase();
+        int rowNumber = db.update(TABLE_PRODUCT,getParams(product),COL_PRODUCT_ID+"=?", new String[] {String.valueOf(product.getId())});
         db.close();
         return rowNumber;
     }

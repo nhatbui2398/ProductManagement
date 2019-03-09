@@ -79,6 +79,8 @@ public class MainScreenActivity extends AppCompatActivity implements View.OnClic
                 switch (menuItem.getItemId()){
                     case R.id.nav_product_manager:{
                         Toast.makeText(getApplicationContext(),"nav_product_manager",Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(), ProductManagementActivity.class);
+                        startActivity(intent);
                         break;
                     }
                 }

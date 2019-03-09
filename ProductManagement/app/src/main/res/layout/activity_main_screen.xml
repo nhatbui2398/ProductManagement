@@ -28,10 +28,10 @@
 
                 <ImageView
                     android:id="@+id/btn_home"
-                    android:layout_width="35dp"
+                    android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:src="@drawable/icon_menu"
+                    android:src="@mipmap/ic_menu"
 
                     />
             </LinearLayout>
@@ -52,7 +52,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:layout_margin="5dp"
                     >
                     <LinearLayout
                         android:background="#2e7d32"

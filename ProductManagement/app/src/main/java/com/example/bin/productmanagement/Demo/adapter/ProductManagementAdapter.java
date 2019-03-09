@@ -1,17 +1,24 @@
 package com.example.bin.productmanagement.Demo.adapter;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.bin.productmanagement.Demo.Database.ProductDatabase;
+import com.example.bin.productmanagement.Demo.activity.EditProductActivity;
+import com.example.bin.productmanagement.Demo.activity.ProductManagementActivity;
 import com.example.bin.productmanagement.Demo.model.Product;
 import com.example.bin.productmanagement.R;
 
@@ -19,27 +26,28 @@ import java.util.ArrayList;
 
 public class ProductManagementAdapter extends RecyclerView.Adapter<ProductManagementAdapter.ViewHolder> {
     ArrayList<Product> products;
-    View view;
-    Context context;
+
+    Activity context;
     ProductDatabase db;
     @NonNull
     @Override
     public ProductManagementAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View view;
         view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_product_management,viewGroup,false);
         return new ViewHolder(view);
     }
 
-    public ProductManagementAdapter(Context context, ArrayList<Product> products, ProductDatabase db){
+    public ProductManagementAdapter(Activity context, ArrayList<Product> products, ProductDatabase db){
         this.context = context;
         this.products = products;
         this.db = db;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductManagementAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ProductManagementAdapter.ViewHolder viewHolder, final int i) {
         final Product product = products.get(i);
-        viewHolder.txtNo.setText(i++);
-        viewHolder.txtName.setText(product.getName());
+        viewHolder.txtNo.setText(String.valueOf(i+1));
+        viewHolder.txtName.setText(String.valueOf(product.getName()));
         viewHolder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,9 +73,14 @@ public class ProductManagementAdapter extends RecyclerView.Adapter<ProductManage
         viewHolder.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Toast.makeText(context,"EDIT",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context,EditProductActivity.class);
+                intent.putExtra("PRODUCT_ID",product.getId());
+                intent.putExtra("PRODUCT_POSITION",i);
+                context.startActivityForResult(intent,ProductManagementActivity.REQUEST_CODE_EDIT);
             }
         });
+
     }
 
     @Override
