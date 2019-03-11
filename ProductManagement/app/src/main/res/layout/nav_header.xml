@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:background="?attr/colorPrimaryDark"
-    android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:orientation="vertical"
     android:gravity="bottom">
@@ -11,10 +10,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Quản lý sản phẩm"
-        android:textSize="20dp"
+        android:text="@string/appManagement"
+        android:textSize="@dimen/primaryTextSize3"
+        android:padding="@dimen/view_padding"
         android:textStyle="bold"
-        android:textColor="#ffffff"
+        android:textColor="@color/primaryTextColor"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
 </LinearLayout>

@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#60ad5e"
+    android:background="@color/primaryLightColor"
     >
     <TextView
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/add_product"
-        android:textSize="20sp"
-        android:textColor="#ffffff"
-        android:background="#005005"
-        android:padding="15dp"
+        android:textSize="@dimen/primaryTextSize3"
+        android:textColor="@color/primaryTextColor"
+        android:background="@color/primaryColor"
+        android:padding="@dimen/view_padding"
         android:textStyle="bold"
         />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginBottom="15dp"
-        android:paddingStart="10dp"
-        android:background="#2e7d32"
+        android:layout_marginBottom="@dimen/marginEndSpace"
+        android:padding="@dimen/view_padding"
+
         >
         <LinearLayout
             android:layout_width="wrap_content"
@@ -35,17 +34,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/id"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
-                android:layout_marginEnd="15dp"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/primaryTextSize2"
+                android:layout_marginEnd="@dimen/marginEndSpace"
                 />
             <TextView
                 android:id="@+id/txt_product_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Product ID"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
+                android:hint="@string/id"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/primaryTextSize2"
                 />
         </LinearLayout>
         <LinearLayout
@@ -56,19 +55,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/name"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
-                android:layout_marginEnd="15dp"
+                android:text="@string/name_title"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/primaryTextSize2"
+                android:layout_marginEnd="@dimen/marginEndSpace"
                 />
+
             <EditText
                 android:id="@+id/edt_product_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Product Name"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
-                />
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/primaryTextSize2" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -78,18 +76,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/point"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
-                android:layout_marginEnd="15dp"
+                android:text="@string/point_title"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/primaryTextSize2"
+                android:layout_marginEnd="@dimen/marginEndSpace"
                 />
             <EditText
                 android:id="@+id/edt_product_point"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/default_number"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/primaryTextSize2"
                 />
         </LinearLayout>
         <LinearLayout
@@ -100,19 +98,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/price"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
-                android:layout_marginEnd="15dp"
+                android:text="@string/price_title"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/primaryTextSize2"
+                android:layout_marginEnd="@dimen/marginEndSpace"
                 />
             <EditText
                 android:id="@+id/edt_product_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Product Price"
+                android:hint="@string/price_title"
                 android:inputType="numberDecimal"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/primaryTextSize2"
                 />
         </LinearLayout>
         <LinearLayout
@@ -123,10 +121,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/discount_25"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
-                android:layout_marginEnd="15dp"
+                android:text="@string/discount_1"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/primaryTextSize2"
+                android:layout_marginEnd="@dimen/marginEndSpace"
                 />
             <EditText
                 android:id="@+id/edt_price_dis_25"
@@ -134,8 +132,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/default_number"
                 android:inputType="numberDecimal"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/primaryTextSize2"
                 />
         </LinearLayout>
         <LinearLayout
@@ -146,10 +144,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/discount_35"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
-                android:layout_marginEnd="15dp"
+                android:text="@string/discount_2"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/primaryTextSize2"
+                android:layout_marginEnd="@dimen/marginEndSpace"
                 />
             <EditText
                 android:id="@+id/edt_price_dis_35"
@@ -157,8 +155,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/default_number"
                 android:inputType="numberDecimal"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/primaryTextSize2"
                 />
         </LinearLayout>
         <LinearLayout
@@ -169,10 +167,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/discount_42"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
-                android:layout_marginEnd="15dp"
+                android:text="@string/discount_3"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/primaryTextSize2"
+                android:layout_marginEnd="@dimen/marginEndSpace"
                 />
 
             <EditText
@@ -181,8 +179,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/default_number"
                 android:inputType="numberDecimal"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/primaryTextSize2"
                 />
         </LinearLayout>
         <LinearLayout
@@ -193,10 +191,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/discount_50"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
-                android:layout_marginEnd="15dp"
+                android:text="@string/discount_4"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/primaryTextSize2"
+                android:layout_marginEnd="@dimen/marginEndSpace"
                 />
             <EditText
                 android:id="@+id/edt_price_dis_50"
@@ -204,8 +202,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/default_number"
                 android:inputType="numberDecimal"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="@dimen/primaryTextSize2"
                 />
         </LinearLayout>
 
@@ -222,22 +220,22 @@
             android:id="@+id/btn_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cancel"
-            android:textColor="#000000"
-            android:background="#64b5f6"
+            android:text="@string/btnCancel"
+            android:textColor="@color/secondaryTextColor"
+            android:background="@color/secondaryColor"
             android:textStyle="bold"
-            android:textSize="16sp"
-            android:layout_marginEnd="20dp"
+            android:textSize="@dimen/secondaryTextSize"
+            android:layout_marginEnd="@dimen/marginButtonSpace"
             />
         <Button
             android:id="@+id/btn_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add"
-            android:textColor="#000000"
-            android:background="#64b5f6"
+            android:text="@string/btnAdd"
+            android:textColor="@color/secondaryTextColor"
+            android:background="@color/secondaryColor"
             android:textStyle="bold"
-            android:textSize="16sp"
+            android:textSize="@dimen/secondaryTextSize"
             />
 
     </LinearLayout>

@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="icon_plus_size">25dp</dimen>
+    <dimen name="primaryTextSize">16sp</dimen>
+    <dimen name="primaryTextSize2">18sp</dimen>
+    <dimen name="primaryTextSize3">20sp</dimen>
+
+    <dimen name="secondaryTextSize">16sp</dimen>
+    <dimen name="secondaryTextSize2">18sp</dimen>
+    <dimen name="secondaryTextSize3">20sp</dimen>
+
+    <dimen name="icon_size_1">25dp</dimen>
+    <dimen name="marginEndSpace">5dp</dimen>
+    <dimen name="marginTopBanner">5dp</dimen>
+
+    <dimen name="view_padding">10dp</dimen>
+
+    <dimen name="marginButtonSpace">20dp</dimen>
+
+    <dimen name="btnSizeType2">50dp</dimen>
+    <dimen name="btnSizeType1">35dp</dimen>
 </resources>

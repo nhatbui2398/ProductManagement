@@ -6,19 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".Demo.activity.TotalActivity"
     android:orientation="vertical"
-    android:background="#2e7d32"
     >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:layout_marginTop="5dp"
+        android:background="@color/primaryColor"
         >
         <ImageView
             android:id="@+id/btn_back"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/left_arrow_1"
+            android:src="@drawable/btn_header_back"
 
             />
 
@@ -27,16 +26,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="BẢNG TÍNH"
-            android:textColor="#ffffff"
-            android:textSize="20dp"
+            android:text="@string/total_title"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="@dimen/primaryTextSize3"
             android:textStyle="bold"
             />
     </RelativeLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="1sp"
-        android:background="#ffffff"
+        android:layout_height="1dp"
+        android:background="@color/black80"
         />
     <ScrollView
         android:fillViewport="true"
@@ -45,30 +44,31 @@
         >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="5dp"
+            android:background="@color/primaryLightColor"
             >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 >
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Điểm: "
-                    android:layout_marginRight="5dp"
-                    android:textSize="16sp"
-                    android:textColor="#ffffff"
-                    />
+                    android:layout_marginEnd="@dimen/marginEndSpace"
+                    android:text="@string/point_title"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/primaryTextSize" />
                 <TextView
                     android:id="@+id/txt_Point"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
-                    android:textSize="20sp"
-                    android:textColor="#ffffff"
+                    android:hint="@string/default_number"
+                    android:textSize="@dimen/primaryTextSize2"
+                    android:textColor="@color/primaryTextColor"
                     />
             </LinearLayout>
             <LinearLayout
@@ -79,19 +79,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Số lượng: "
-                    android:layout_marginRight="5dp"
+                    android:text="@string/amount_title"
+                    android:layout_marginEnd="@dimen/marginEndSpace"
                     android:textSize="16sp"
-                    android:textColor="#ffffff"
+                    android:textColor="@color/primaryTextColor"
                     />
 
                 <TextView
                     android:id="@+id/txt_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
+                    android:hint="@string/default_number"
                     android:textSize="20sp"
-                    android:textColor="#ffffff"
+                    android:textColor="@color/primaryTextColor"
                     />
             </LinearLayout>
             <LinearLayout
@@ -102,19 +102,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tổng giá trị đơn hàng: "
-                    android:layout_marginRight="5dp"
-                    android:textSize="16sp"
-                    android:textColor="#ffffff"
+                    android:text="@string/total_price"
+                    android:layout_marginEnd="5dp"
+                    android:textSize="@dimen/primaryTextSize"
+                    android:textColor="@color/primaryTextColor"
                     />
 
                 <TextView
                     android:id="@+id/txt_Total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
-                    android:textSize="20sp"
-                    android:textColor="#ffffff"
+                    android:hint="@string/default_number"
+                    android:textSize="@dimen/primaryTextSize2"
+                    android:textColor="@color/primaryTextColor"
                     />
             </LinearLayout>
             <LinearLayout
@@ -125,18 +125,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Phí vận chuyển: "
-                    android:layout_marginRight="5dp"
-                    android:textSize="16sp"
-                    android:textColor="#ffffff"
+                    android:text="@string/fee_ship_string"
+                    android:layout_marginEnd="@dimen/marginEndSpace"
+                    android:textSize="@dimen/primaryTextSize"
+                    android:textColor="@color/primaryTextColor"
                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="88,000"
-                    android:textSize="20sp"
-                    android:textColor="#ffffff"
+                    android:text="@string/fee_ship"
+                    android:textSize="@dimen/primaryTextSize2"
+                    android:textColor="@color/primaryTextColor"
                     />
             </LinearLayout>
             <LinearLayout
@@ -147,50 +147,50 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Chiết khấu: "
-                    android:layout_marginRight="5dp"
-                    android:textSize="16sp"
-                    android:textColor="#ffffff"
+                    android:text="@string/discount"
+                    android:layout_marginEnd="@dimen/marginEndSpace"
+                    android:textSize="@dimen/primaryTextSize"
+                    android:textColor="@color/primaryTextColor"
 
                     />
                 <Button
                     android:id="@+id/btn_discount_25"
-                    android:layout_width="60dp"
-                    android:layout_height="50dp"
-                    android:text="25%"
-                    android:textSize="16sp"
+                    android:layout_width="@dimen/btnDiscountSize"
+                    android:layout_height="@dimen/btnDiscountSize"
+                    android:text="@string/btn_discount_1"
+                    android:textSize="@dimen/secondaryTextSize2"
                     android:background="@color/colorNormalBackground"
                     android:textColor="@color/colorWhiteText"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="@dimen/marginEndSpace"
                     />
                 <Button
                     android:id="@+id/btn_discount_35"
-                    android:layout_width="60dp"
-                    android:layout_height="50dp"
-                    android:text="35%"
-                    android:textSize="16sp"
-                    android:textColor="#ffffff"
-                    android:background="#60ad5e"
-                    android:layout_marginRight="5dp"
+                    android:layout_width="@dimen/btnDiscountSize"
+                    android:layout_height="@dimen/btnDiscountSize"
+                    android:text="@string/btn_discount_2"
+                    android:textSize="@dimen/secondaryTextSize2"
+                    android:background="@color/colorNormalBackground"
+                    android:textColor="@color/colorWhiteText"
+                    android:layout_marginEnd="@dimen/marginEndSpace"
                     />
                 <Button
                     android:id="@+id/btn_discount_42"
-                    android:layout_width="60dp"
-                    android:layout_height="50dp"
-                    android:text="42%"
-                    android:textSize="16sp"
-                    android:textColor="#ffffff"
-                    android:background="#60ad5e"
-                    android:layout_marginRight="5dp"
+                    android:layout_width="@dimen/btnDiscountSize"
+                    android:layout_height="@dimen/btnDiscountSize"
+                    android:text="@string/btn_discount_3"
+                    android:textSize="@dimen/secondaryTextSize2"
+                    android:background="@color/colorNormalBackground"
+                    android:textColor="@color/colorWhiteText"
+                    android:layout_marginEnd="@dimen/marginEndSpace"
                     />
                 <Button
                     android:id="@+id/btn_discount_50"
-                    android:layout_width="60dp"
-                    android:layout_height="50dp"
-                    android:text="50%"
-                    android:textSize="16sp"
-                    android:textColor="#ffffff"
-                    android:background="#60ad5e"
+                    android:layout_width="@dimen/btnDiscountSize"
+                    android:layout_height="@dimen/btnDiscountSize"
+                    android:text="@string/btn_discount_4"
+                    android:textSize="@dimen/secondaryTextSize2"
+                    android:background="@color/colorNormalBackground"
+                    android:textColor="@color/colorWhiteText"
                     />
             </LinearLayout>
             <LinearLayout
@@ -201,34 +201,34 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Thành tiền: "
-                    android:layout_marginRight="5dp"
-                    android:textSize="16sp"
-                    android:textColor="#ffffff"
+                    android:text="@string/final_price"
+                    android:textSize="@dimen/primaryTextSize"
+                    android:layout_marginEnd="@dimen/marginEndSpace"
+                    android:textColor="@color/primaryTextColor"
                     />
 
                 <TextView
                     android:id="@+id/txt_finalTotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
-                    android:textSize="20sp"
-                    android:textColor="#ffffff"
+                    android:hint="@string/default_number"
+                    android:textSize="@dimen/primaryTextSize2"
+                    android:textColor="@color/primaryTextColor"
                     />
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chi tiết đơn hàng:"
+                android:text="@string/detail_orders"
                 android:textStyle="bold"
-                android:textSize="18sp"
+                android:textSize="@dimen/primaryTextSize2"
                 android:layout_marginBottom="5dp"
-                android:textColor="#ffffff"
+                android:textColor="@color/primaryTextColor"
                 />
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1sp"
-                android:background="#ffffff"
+                android:layout_height="1dp"
+                android:background="@color/black90"
                 />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -236,55 +236,56 @@
                 android:layout_marginBottom="5dp"
                 android:orientation="horizontal"
                 >
+
                 <TextView
-                    android:layout_weight="0.75"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/marginEndSpace"
+                    android:gravity="center"
+                    android:text="@string/order_title"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/primaryTextSize"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No."
-                    android:textSize="16sp"
+                    android:text="@string/name_title"
+                    android:textSize="@dimen/primaryTextSize"
                     android:textStyle="bold"
                     android:gravity="center"
-                    android:textColor="#ffffff"
+                    android:layout_marginEnd="@dimen/marginEndSpace"
+                    android:textColor="@color/primaryTextColor"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/marginEndSpace"
+                    android:gravity="center"
+                    android:text="@string/point_title"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/price_title"
+                    android:textSize="@dimen/primaryTextSize"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginEnd="@dimen/marginEndSpace"
+                    android:textColor="@color/primaryTextColor"
                     />
                 <TextView
-                    android:layout_weight="2"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="NAME"
-                    android:textSize="16sp"
+                    android:text="@string/amount_title"
+                    android:textSize="@dimen/primaryTextSize"
                     android:textStyle="bold"
                     android:gravity="center"
-                    android:textColor="#ffffff"
-                    />
-                <TextView
-                    android:layout_weight="2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="POINT"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:textColor="#ffffff"
-                    />
-                <TextView
-                    android:layout_weight="4"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="PRICE"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:textColor="#ffffff"
-                    />
-                <TextView
-                    android:layout_weight="2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="AMOUNT"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:textColor="#ffffff"
+                    android:layout_marginEnd="@dimen/marginEndSpace"
+                    android:textColor="@color/primaryTextColor"
                     />
             </LinearLayout>
             <android.support.v7.widget.RecyclerView

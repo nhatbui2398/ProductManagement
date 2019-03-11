@@ -3,9 +3,6 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_product_manager"
-            android:title="@string/list_product" />
-        <item
-            android:id="@+id/nav_history"
-            android:title="@string/history" />
+            android:title="@string/productManagement" />
     </group>
 </menu>
