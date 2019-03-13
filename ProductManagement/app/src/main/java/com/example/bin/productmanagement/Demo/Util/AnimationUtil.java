@@ -1,11 +1,11 @@
-package com.example.dak.remindmelater.Utility;
+package com.example.bin.productmanagement.Demo.Util;
 
 import android.content.Context;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import com.example.dak.remindmelater.R;
+import com.example.bin.productmanagement.R;
 
 
 public class AnimationUtil {

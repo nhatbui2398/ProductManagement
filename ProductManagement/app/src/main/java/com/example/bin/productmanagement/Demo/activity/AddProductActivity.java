@@ -2,16 +2,19 @@ package com.example.bin.productmanagement.Demo.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bin.productmanagement.Demo.Database.ProductDatabase;
+import com.example.bin.productmanagement.Demo.Util.AnimationUtil;
 import com.example.bin.productmanagement.Demo.model.Product;
 import com.example.bin.productmanagement.R;
 
@@ -21,6 +24,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
     Button btnCancel, btnAdd;
     int productId;
     ProductDatabase db;
+    LinearLayout linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +32,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         connectView();
     }
     private void connectView(){
+        linearLayout = findViewById(R.id.layoutLinear);
         edtDis25 = findViewById(R.id.edt_price_dis_25);
         edtDis35 = findViewById(R.id.edt_price_dis_35);
         edtDis42 = findViewById(R.id.edt_price_dis_42);
@@ -68,31 +73,38 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
 
     private boolean checkEmptyInfo(){
         if(TextUtils.isEmpty(edtName.getText().toString())){
-            Toast.makeText(this,R.string.IsEmptyInfo,Toast.LENGTH_SHORT).show();
+            AnimationUtil.shakeView(edtName, this);
+            Snackbar.make(linearLayout, R.string.IsEmptyInfo, Snackbar.LENGTH_SHORT).show();
             return false;
         }
         else if(TextUtils.isEmpty(edtPoint.getText().toString())){
-            Toast.makeText(this,R.string.IsEmptyInfo,Toast.LENGTH_SHORT).show();
+            AnimationUtil.shakeView(edtPoint, this);
+            Snackbar.make(linearLayout, R.string.IsEmptyInfo, Snackbar.LENGTH_SHORT).show();
             return false;
         }
         else if(TextUtils.isEmpty(edtName.getText().toString())){
-            Toast.makeText(this,R.string.IsEmptyInfo,Toast.LENGTH_SHORT).show();
+            AnimationUtil.shakeView(edtName, this);
+            Snackbar.make(linearLayout, R.string.IsEmptyInfo, Snackbar.LENGTH_SHORT).show();
             return false;
         }
         else if(TextUtils.isEmpty(edtDis25.getText().toString())){
-            Toast.makeText(this,R.string.IsEmptyInfo,Toast.LENGTH_SHORT).show();
+            AnimationUtil.shakeView(edtDis25, this);
+            Snackbar.make(linearLayout, R.string.IsEmptyInfo, Snackbar.LENGTH_SHORT).show();
             return false;
         }
         else if(TextUtils.isEmpty(edtDis35.getText().toString())){
-            Toast.makeText(this,R.string.IsEmptyInfo,Toast.LENGTH_SHORT).show();
+            AnimationUtil.shakeView(edtDis35, this);
+            Snackbar.make(linearLayout, R.string.IsEmptyInfo, Snackbar.LENGTH_SHORT).show();
             return false;
         }
         else if(TextUtils.isEmpty(edtDis42.getText().toString())){
-            Toast.makeText(this,R.string.IsEmptyInfo,Toast.LENGTH_SHORT).show();
+            AnimationUtil.shakeView(edtDis42, this);
+            Snackbar.make(linearLayout, R.string.IsEmptyInfo, Snackbar.LENGTH_SHORT).show();
             return false;
         }
         else if(TextUtils.isEmpty(edtDis50.getText().toString())){
-            Toast.makeText(this,R.string.IsEmptyInfo,Toast.LENGTH_SHORT).show();
+            AnimationUtil.shakeView(edtDis50, this);
+            Snackbar.make(linearLayout, R.string.IsEmptyInfo, Snackbar.LENGTH_SHORT).show();
             return false;
         }
         return true;
