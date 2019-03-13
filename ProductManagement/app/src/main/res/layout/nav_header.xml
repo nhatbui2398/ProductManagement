@@ -14,7 +14,7 @@
         android:textSize="@dimen/primaryTextSize3"
         android:padding="@dimen/view_padding"
         android:textStyle="bold"
-        android:textColor="@color/primaryTextColor"
+        android:textColor="@color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
 </LinearLayout>

@@ -32,7 +32,7 @@ public class ProductDetailActivity extends Activity implements ProductDetailCont
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_detail);
+        setContentView(R.layout.activity_product_detail_2);
         connectinitView();
         int productId = getIntent().getIntExtra(INTENT_PRODUCT_ID, 0);
         presenter = new ProductDetailPresenter(this, this);

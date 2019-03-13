@@ -4,12 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/primaryLightColor"
     >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primaryColor"
+        android:background="@color/primaryDarkColor"
         >
         <ImageView
             android:id="@+id/btn_back"
@@ -26,7 +25,7 @@
             android:gravity="center"
             android:padding="@dimen/view_padding"
             android:text="@string/detail_activity"
-            android:textColor="@color/primaryTextColor"
+            android:textColor="@color/white"
             android:textSize="@dimen/primaryTextSize3"
             android:textStyle="bold" />
     </RelativeLayout>

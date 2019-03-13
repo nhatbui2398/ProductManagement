@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/primaryLightColor"
-    >
+    android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -16,8 +12,8 @@
             android:layout_height="wrap_content"
             android:text="@string/add_product"
             android:textSize="@dimen/primaryTextSize3"
-            android:textColor="@color/primaryTextColor"
-            android:background="@color/primaryColor"
+            android:textColor="@color/white"
+            android:background="@color/primaryDarkColor"
             android:padding="@dimen/view_padding"
             android:textStyle="bold"
             />
@@ -31,6 +27,7 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -223,10 +220,12 @@
 
     </LinearLayout>
     <LinearLayout
+
         android:id="@+id/control"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/paddingSize5"
         android:orientation="horizontal"
         >
 
@@ -235,22 +234,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/btnCancel"
-            android:textColor="@color/secondaryTextColor"
-            android:background="@color/secondaryColor"
+            android:textColor="@color/white"
+            android:background="@drawable/main_button_shape"
             android:textStyle="bold"
             android:textSize="@dimen/secondaryTextSize"
             android:layout_marginEnd="@dimen/marginButtonSpace"
             />
         <Button
             android:id="@+id/btn_add"
+            android:layout_marginLeft="100dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/btnAdd"
-            android:textColor="@color/secondaryTextColor"
-            android:background="@color/secondaryColor"
+            android:textColor="@color/white"
+            android:background="@drawable/main_button_shape"
             android:textStyle="bold"
             android:textSize="@dimen/secondaryTextSize"
             />
-
     </LinearLayout>
 </LinearLayout>

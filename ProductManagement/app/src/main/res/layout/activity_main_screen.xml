@@ -110,10 +110,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/banner_ads"
-                android:background="@color/secondaryColor"
+                android:background="@drawable/main_button_shape"
                 android:text="@string/btnTextDetail"
+                android:textColor="@color/white"
+                android:layout_margin="@dimen/marginEndSpace"
                 android:textSize="@dimen/secondaryTextSize"
-                android:textColor="@color/secondaryTextColor"
                 android:textStyle="bold" />
 
             <com.google.android.gms.ads.AdView

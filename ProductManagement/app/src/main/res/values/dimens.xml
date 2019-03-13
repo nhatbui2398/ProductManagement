@@ -21,4 +21,16 @@
     <dimen name="btnSizeType">25dp</dimen>
     <dimen name="marginSpace1">10dp</dimen>
     <dimen name="marginSpace2">30dp</dimen>
+
+    <dimen name="paddingSize1">1dp</dimen>
+    <dimen name="paddingSize2">2dp</dimen>
+    <dimen name="paddingSize3">3dp</dimen>
+    <dimen name="paddingSize4">4dp</dimen>
+    <dimen name="paddingSize5">5dp</dimen>
+
+    <dimen name="marginSize1">1dp</dimen>
+    <dimen name="marginSize2">2dp</dimen>
+    <dimen name="marginSize3">3dp</dimen>
+    <dimen name="marginSize4">4dp</dimen>
+    <dimen name="marginSize5">5dp</dimen>
 </resources>

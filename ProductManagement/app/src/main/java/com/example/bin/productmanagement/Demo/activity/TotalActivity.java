@@ -20,7 +20,10 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
+import java.util.Locale;
 
 /**?
  * Activity xuất hiện sau khi bấm button Tính
@@ -39,6 +42,9 @@ public class TotalActivity extends AppCompatActivity implements View.OnClickList
     final String DISCOUNT_35 ="discount_35";
     final String DISCOUNT_42 ="discount_42";
     final String DISCOUNT_50 ="discount_50";
+
+    DecimalFormat dcf;
+    DecimalFormatSymbols dfs;
 
     String mCurrentDisType = "";
     @Override
@@ -124,11 +130,9 @@ public class TotalActivity extends AppCompatActivity implements View.OnClickList
         }
         else {
             if(btnCurrent!=null){
-                btnCurrent.setTextColor(getResources().getColor(R.color.colorWhiteText));
-                btnCurrent.setBackgroundColor(getResources().getColor(R.color.colorNormalBackground));
+                btnCurrent.setBackgroundColor(getResources().getColor(R.color.white20));
             }
-            selectionBtnDis.setBackgroundColor(getResources().getColor(R.color.colorSelectorBackground));
-            selectionBtnDis.setTextColor(getResources().getColor(R.color.colorBlackText));
+            selectionBtnDis.setBackgroundColor(getResources().getColor(R.color.black));
             btnCurrent = findViewById(selectionBtnDis.getId());
             mCurrentDisType = selectionDisID;
             //selectionBtnDis.setBackgroundColor();
@@ -156,6 +160,7 @@ public class TotalActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void changeResultDiscount(){
+        formatCurrent();
         double price2 = 0;
         if(db.getCountProductTotal() > 0){
             for(int i = 0; i < list_Prd.size(); i++){
@@ -163,8 +168,15 @@ public class TotalActivity extends AppCompatActivity implements View.OnClickList
                 price2 += getDiscountPrice(pro)*pro.getAmount();
             }
             price2 += 88000;
-            txt_finalTotal.setText(String.valueOf(Math.round(price2*100)/100));
+            txt_finalTotal.setText(String.valueOf(dcf.format((Math.round(price2*100)/100))) + " đ");
         }
+    }
+
+    private void formatCurrent() {
+        dcf = new DecimalFormat("#,###");
+        dfs = new DecimalFormatSymbols(Locale.getDefault());
+        dfs.setGroupingSeparator(',');
+        dcf.setDecimalFormatSymbols(dfs);
     }
 
     private void setData(){
@@ -181,6 +193,7 @@ public class TotalActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void cashOrders(){
+        formatCurrent();
         if(list_Prd.size() > 0){
             int count = 0;
             double point = 0, price1 = 0, price2 = 0;
@@ -193,9 +206,9 @@ public class TotalActivity extends AppCompatActivity implements View.OnClickList
                 count += pro.getAmount();
             }
             price2 += 88000;
-            txt_Total.setText(String.valueOf(Math.round(price1*100)/100));
+            txt_Total.setText(String.valueOf(dcf.format(Math.round(price1*100)/100)) + " đ");
             txt_Point.setText(String.valueOf(Math.round(point*100)/100));
-            txt_finalTotal.setText(String.valueOf(Math.round(price2*100)/100));
+            txt_finalTotal.setText(String.valueOf(dcf.format(Math.round(price2*100)/100)) + " đ");
             txt_Count.setText(String.valueOf(count));
         }
 

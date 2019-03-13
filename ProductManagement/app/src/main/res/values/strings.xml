@@ -29,10 +29,10 @@
     <string name="edit_product">Sửa sản phẩm</string>
     <string name="add_product">Thêm sản phẩm</string>
     <string name="order_title">STT</string>
-    <string name="amount_title">Số lượng</string>
+    <string name="amount_title">Số lượng:</string>
     <string name="name_title">Tên sản phẩm</string>
     <string name="total_title">CHI TIẾT</string>
-    <string name="point_title">Điểm</string>
+    <string name="point_title">Điểm:</string>
     //default
     <string name="default_number">0</string>
     <string name="IsEmptyInfo">Không để trống thông tin sản phẩm</string>
