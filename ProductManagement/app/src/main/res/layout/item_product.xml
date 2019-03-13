@@ -11,15 +11,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:paddingLeft="@dimen/view_padding"
-        android:paddingRight="@dimen/view_padding"
         >
 
         <TextView
             android:id="@+id/txt_prdID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginSpace1"
             android:layout_marginEnd="@dimen/marginEndSpace"
+            android:paddingRight="@dimen/view_padding"
+            android:paddingLeft="@dimen/view_padding"
             android:gravity="center"
             android:text="@string/order_title"
             android:textColor="@color/primaryTextColor"
@@ -31,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/marginEndSpace"
             android:layout_weight="1"
+            android:gravity="center"
             android:ellipsize="end"
             android:text="@string/name_title"
             android:textColor="@color/primaryTextColor"
@@ -43,9 +45,9 @@
             android:src="@drawable/minus" />
 
         <EditText
-            android:layout_weight="0.25"
+            android:layout_weight="0.2"
             android:id="@+id/edt_prdAmt"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/marginEndSpace"
             android:layout_marginRight="@dimen/marginEndSpace"

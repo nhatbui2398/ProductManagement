@@ -1,22 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/primaryLightColor"
     >
-    <TextView
-        android:gravity="center"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/add_product"
-        android:textSize="@dimen/primaryTextSize3"
-        android:textColor="@color/primaryTextColor"
-        android:background="@color/primaryColor"
-        android:padding="@dimen/view_padding"
-        android:textStyle="bold"
-        />
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_product"
+            android:textSize="@dimen/primaryTextSize3"
+            android:textColor="@color/primaryTextColor"
+            android:background="@color/primaryColor"
+            android:padding="@dimen/view_padding"
+            android:textStyle="bold"
+            />
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="@dimen/btnSizeType2"
+            android:layout_height="@dimen/btnSizeType2"
+            android:src="@drawable/btn_header_back"
+            />
+
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,7 +55,7 @@
                 android:id="@+id/txt_product_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/id"
+                android:hint="@string/default_number"
                 android:textColor="@color/primaryTextColor"
                 android:textSize="@dimen/primaryTextSize2"
                 />
@@ -66,7 +79,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/primaryTextColor"
-                android:textSize="@dimen/primaryTextSize2" />
+                android:textSize="@dimen/primaryTextSize2"
+                />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -107,7 +121,7 @@
                 android:id="@+id/edt_product_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/price_title"
+                android:hint="@string/default_number"
                 android:inputType="numberDecimal"
                 android:textColor="@color/primaryTextColor"
                 android:textSize="@dimen/primaryTextSize2"

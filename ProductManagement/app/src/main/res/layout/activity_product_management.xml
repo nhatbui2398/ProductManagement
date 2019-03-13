@@ -10,6 +10,12 @@
         android:layout_height="wrap_content"
         android:background="@color/primaryColor"
         >
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="@dimen/btnSizeType2"
+            android:layout_height="@dimen/btnSizeType2"
+            android:src="@drawable/btn_header_back"
+            />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,6 +58,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/order_title"
                 android:textSize="@dimen/primaryTextSize2"
+                android:layout_marginStart="@dimen/marginEndSpace"
+                android:layout_marginEnd="@dimen/marginSpace2"
                 android:gravity="center"
                 android:textColor="@color/primaryTextColor"
                 android:textStyle="bold"
@@ -62,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/name_title"
                 android:textSize="@dimen/primaryTextSize2"
-                android:gravity="center"
+                android:layout_marginStart="@dimen/marginSpace2"
                 android:textColor="@color/primaryTextColor"
                 android:textStyle="bold"
                 />

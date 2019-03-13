@@ -28,5 +28,5 @@
     <color name="colorSelectorBackground">#cabf45</color>
     <color name="colorBlackText">#000000</color>
     <color name="colorWhiteText">#ffffff</color>
-    <color name="colorNormalBackground">#cabf45</color>
+    <color name="colorNormalBackground">#fff</color>
 </resources>

@@ -13,8 +13,8 @@
         >
         <ImageView
             android:id="@+id/btn_back"
-            android:layout_width="@dimen/btnBackSize"
-            android:layout_height="@dimen/btnBackSize"
+            android:layout_width="@dimen/btnSizeType1"
+            android:layout_height="@dimen/btnSizeType1"
             android:src="@drawable/btn_header_back"
             />
 
@@ -156,7 +156,7 @@
                android:layout_marginEnd="@dimen/marginEndSpace"
                />
            <TextView
-               android:id="@+id/txt_discount_1"
+               android:id="@+id/txt_detail_discount_1"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:hint="@string/default_number"
@@ -183,7 +183,7 @@
                android:layout_marginEnd="@dimen/marginEndSpace"
                />
            <TextView
-               android:id="@+id/txt_discount_2"
+               android:id="@+id/txt_detail_discount_2"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:hint="@string/default_number"
@@ -210,7 +210,7 @@
                android:layout_marginEnd="@dimen/marginEndSpace"
                />
            <TextView
-               android:id="@+id/txt_discount_3"
+               android:id="@+id/txt_detail_discount_3"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:hint="@string/default_number"
@@ -236,7 +236,7 @@
                android:layout_marginEnd="@dimen/marginEndSpace"
                />
            <TextView
-               android:id="@+id/txt_discount_4"
+               android:id="@+id/txt_detail_discount_4"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:hint="@string/default_number"

@@ -6,22 +6,34 @@
     android:orientation="vertical"
     android:background="@color/primaryLightColor"
     >
-    <TextView
-        android:gravity="center"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/edit_product"
-        android:textSize="@dimen/primaryTextSize3"
-        android:textColor="@color/primaryTextColor"
-        android:background="@color/primaryColor"
-        android:padding="@dimen/view_padding"
-        android:textStyle="bold"
-        />
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_product"
+            android:textSize="@dimen/primaryTextSize3"
+            android:textColor="@color/primaryTextColor"
+            android:background="@color/primaryColor"
+            android:padding="@dimen/view_padding"
+            android:textStyle="bold"
+            />
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="@dimen/btnSizeType2"
+            android:layout_height="@dimen/btnSizeType2"
+            android:src="@drawable/btn_header_back"
+            />
+    </FrameLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginBottom="@dimen/marginEndSpace"
+        android:padding="@dimen/view_padding"
 
         >
         <LinearLayout
@@ -126,7 +138,7 @@
                 android:layout_marginEnd="@dimen/marginEndSpace"
                 />
             <EditText
-                android:id="@+id/edt_price_dis_25"
+                android:id="@+id/edt_price_dis_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/default_number"
@@ -149,7 +161,7 @@
                 android:layout_marginEnd="@dimen/marginEndSpace"
                 />
             <EditText
-                android:id="@+id/edt_price_dis_35"
+                android:id="@+id/edt_price_dis_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/default_number"
@@ -173,7 +185,7 @@
                 />
 
             <EditText
-                android:id="@+id/edt_price_dis_42"
+                android:id="@+id/edt_price_dis_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/default_number"
@@ -196,7 +208,7 @@
                 android:layout_marginEnd="@dimen/marginEndSpace"
                 />
             <EditText
-                android:id="@+id/edt_price_dis_50"
+                android:id="@+id/edt_price_dis_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/default_number"

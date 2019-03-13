@@ -11,19 +11,20 @@
         android:id="@+id/txt_no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/id"
+        android:hint="@string/order_title"
         android:textSize="@dimen/primaryTextSize2"
         android:gravity="center"
-        android:layout_marginEnd="@dimen/marginEndSpace"
+        android:layout_marginEnd="@dimen/marginSpace2"
         android:textColor="@color/primaryTextColor"
         android:layout_marginTop="@dimen/marginEndSpace"
+        android:layout_marginStart="@dimen/marginSpace1"
         />
 
     <TextView
+        android:gravity="center"
         android:id="@+id/txt_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/marginEndSpace"
         android:layout_weight="1"
         android:text="@string/name_title"
         android:textColor="@color/primaryTextColor"
@@ -32,15 +33,15 @@
         />
     <ImageView
         android:id="@+id/btn_edit"
-        android:layout_width="@dimen/btnEditDeleteSize"
-        android:layout_height="@dimen/btnEditDeleteSize"
+        android:layout_width="@dimen/btnSizeType1"
+        android:layout_height="@dimen/btnSizeType1"
         android:layout_marginStart="@dimen/marginButtonSpace"
         android:src="@drawable/icon_view_more_ngang"
         />
     <ImageView
         android:id="@+id/btn_delete"
-        android:layout_width="@dimen/btnEditDeleteSize"
-        android:layout_height="@dimen/btnEditDeleteSize"
+        android:layout_width="@dimen/btnSizeType1"
+        android:layout_height="@dimen/btnSizeType1"
         android:layout_marginLeft="@dimen/marginButtonSpace"
         android:layout_marginRight="@dimen/marginButtonSpace"
         android:src="@drawable/icon_search_btn_cleardata"

@@ -15,14 +15,14 @@
         >
         <ImageView
             android:id="@+id/btn_back"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/btnSizeType2"
+            android:layout_height="@dimen/btnSizeType2"
             android:src="@drawable/btn_header_back"
 
             />
 
         <TextView
-            android:layout_marginTop="10dp"
+            android:padding="@dimen/view_padding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -155,42 +155,42 @@
                     />
                 <Button
                     android:id="@+id/btn_discount_25"
-                    android:layout_width="@dimen/btnDiscountSize"
-                    android:layout_height="@dimen/btnDiscountSize"
+                    android:layout_width="@dimen/btnSizeType2"
+                    android:layout_height="@dimen/btnSizeType2"
                     android:text="@string/btn_discount_1"
                     android:textSize="@dimen/secondaryTextSize2"
                     android:background="@color/colorNormalBackground"
-                    android:textColor="@color/colorWhiteText"
+                    android:textColor="@color/primaryTextColor"
                     android:layout_marginEnd="@dimen/marginEndSpace"
                     />
                 <Button
                     android:id="@+id/btn_discount_35"
-                    android:layout_width="@dimen/btnDiscountSize"
-                    android:layout_height="@dimen/btnDiscountSize"
+                    android:layout_width="@dimen/btnSizeType2"
+                    android:layout_height="@dimen/btnSizeType2"
                     android:text="@string/btn_discount_2"
                     android:textSize="@dimen/secondaryTextSize2"
                     android:background="@color/colorNormalBackground"
-                    android:textColor="@color/colorWhiteText"
+                    android:textColor="@color/primaryTextColor"
                     android:layout_marginEnd="@dimen/marginEndSpace"
                     />
                 <Button
                     android:id="@+id/btn_discount_42"
-                    android:layout_width="@dimen/btnDiscountSize"
-                    android:layout_height="@dimen/btnDiscountSize"
+                    android:layout_width="@dimen/btnSizeType2"
+                    android:layout_height="@dimen/btnSizeType2"
                     android:text="@string/btn_discount_3"
                     android:textSize="@dimen/secondaryTextSize2"
                     android:background="@color/colorNormalBackground"
-                    android:textColor="@color/colorWhiteText"
+                    android:textColor="@color/primaryTextColor"
                     android:layout_marginEnd="@dimen/marginEndSpace"
                     />
                 <Button
                     android:id="@+id/btn_discount_50"
-                    android:layout_width="@dimen/btnDiscountSize"
-                    android:layout_height="@dimen/btnDiscountSize"
+                    android:layout_width="@dimen/btnSizeType2"
+                    android:layout_height="@dimen/btnSizeType2"
                     android:text="@string/btn_discount_4"
                     android:textSize="@dimen/secondaryTextSize2"
                     android:background="@color/colorNormalBackground"
-                    android:textColor="@color/colorWhiteText"
+                    android:textColor="@color/primaryTextColor"
                     />
             </LinearLayout>
             <LinearLayout
@@ -235,12 +235,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:orientation="horizontal"
+                android:background="@color/primaryColor"
                 >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="@dimen/marginEndSpace"
+                    android:layout_marginEnd="@dimen/marginSpace1"
                     android:gravity="center"
                     android:text="@string/order_title"
                     android:textColor="@color/primaryTextColor"
@@ -253,7 +254,7 @@
                     android:textSize="@dimen/primaryTextSize"
                     android:textStyle="bold"
                     android:gravity="center"
-                    android:layout_marginEnd="@dimen/marginEndSpace"
+                    android:layout_marginEnd="@dimen/marginSpace1"
                     android:textColor="@color/primaryTextColor"
                     />
 
@@ -288,6 +289,11 @@
                     android:textColor="@color/primaryTextColor"
                     />
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black90"
+                />
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rcv_total"
                 android:layout_width="match_parent"
